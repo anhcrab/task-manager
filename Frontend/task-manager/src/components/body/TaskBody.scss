@@ -1,0 +1,17 @@
+@keyframes slide{
+    
+}
+
+#task-body {
+    display: flex;
+}
+
+#left-side {
+    flex: 0 0 16.66667%;
+    max-width: 16.66667%;
+}
+
+#main-content {
+    flex: 0 0 83.33333%;
+    max-width: 83.33333%;
+}

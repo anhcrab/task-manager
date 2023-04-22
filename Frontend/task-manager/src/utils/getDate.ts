@@ -1,7 +1,7 @@
 
-const getDate = (): String => {
+const getDate = (): string => {
     const presentDate = new Date(Date.now())
-    let day, month, year
+    let day
 
     switch (presentDate.getDay()) {
         case 1:
@@ -28,8 +28,8 @@ const getDate = (): String => {
         default:
             throw new Error(`Invalid date: ${presentDate}`)
     }
-    month = presentDate.getMonth()
-    year = presentDate.getFullYear()
+    const month = presentDate.getMonth()
+    const year = presentDate.getFullYear()
     return `${day} ${month} ${year}`
 }
 

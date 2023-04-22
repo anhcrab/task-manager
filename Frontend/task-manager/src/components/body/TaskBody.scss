@@ -4,14 +4,97 @@
 
 #task-body {
     display: flex;
+    height: 100%;
 }
 
 #left-side {
     flex: 0 0 16.66667%;
     max-width: 16.66667%;
+    height: 94vh;
+    padding-top: 30px;
+    background-color: rgba($color: #ccc, $alpha: 0.15);
+}
+
+.side-menu{
+    width: 100%;
+    padding: 0 18px;
+    list-style-type: none;
+}
+
+.side-menu-list {
+    padding: 5px;
+    font-weight: 200;
+    font-size: 18px;
+}
+
+.side-menu-list:hover {
+    background-color: rgba($color: #ccc, $alpha: 0.3);
+}
+
+.side-menu-list-onclick {
+    background-color: rgba($color: #ccc, $alpha: 0.3);
+}
+
+.side-menu-list i {
+    padding: 4px;
+    padding-right: 6px;
 }
 
 #main-content {
     flex: 0 0 83.33333%;
     max-width: 83.33333%;
+}
+
+#view-header {
+    display: flex;
+    padding-top: 35px;
+    padding-left: 55px;
+    padding-right: 55px;
+    justify-content: center;
+}
+
+.header-content {
+    padding-bottom: 8px;
+    border-bottom: 1px solid #ccc;
+    width: 900px;
+    font-size: small;
+    color: rgba($color: #555, $alpha: 0.7);
+}
+
+.simple-content {
+    color: #000;
+    font-size: 30px;
+    font-weight: 600;
+}
+
+#view-content {
+    display: flex;
+    justify-content: center;
+}
+
+.items {
+    list-style-type: none;
+    width: 900px;
+}
+
+.items > li {
+    padding-bottom: 8px;
+    height: 40px;
+}
+
+.add-items {
+    display: flex;
+    background-color: #fff;
+    width: 100%;
+    justify-content: left;
+}
+
+.add-items:hover {
+    cursor: pointer;
+    color: #db4c3f;
+}
+
+.add-icon {
+    color: #db4c3f;
+    margin-right: 12px;
 }

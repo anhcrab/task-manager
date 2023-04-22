@@ -24,7 +24,7 @@ const TaskHeader = () => {
                         <label htmlFor="search-input">
                             <i className="bi bi-search"></i>
                         </label>
-                        <input type="text" id='search-input' />
+                        <input type="text" id='search-input' placeholder='Search' />
                     </div>
 
                     <div id='right-control'>

@@ -56,7 +56,7 @@
 .header-content {
     padding-bottom: 8px;
     border-bottom: 1px solid #ccc;
-    width: 900px;
+    width: 800px;
     font-size: small;
     color: rgba($color: #555, $alpha: 0.7);
 }
@@ -74,19 +74,22 @@
 
 .items {
     list-style-type: none;
-    width: 900px;
+    width: 800px;
 }
 
 .items > li {
+    padding-top: 8px;
     padding-bottom: 8px;
-    height: 40px;
 }
 
+
 .add-items {
-    display: flex;
+    display: none;
     background-color: #fff;
+    color: gray;
     width: 100%;
     justify-content: left;
+    font-size: 16px;
 }
 
 .add-items:hover {
@@ -97,4 +100,46 @@
 .add-icon {
     color: #db4c3f;
     margin-right: 12px;
+}
+
+.control-func-form {
+    display: none;
+    border: 0.896px solid #ccc;
+    border-radius: 8px;
+}
+
+.task-editor {
+    padding: 10px 10px 0;
+    border-bottom: 0.896px solid #ccc;
+}
+
+.submit-func-btn {
+    display: flex;
+    justify-content: right;
+    margin-right: 12px;
+}
+
+.submit-func-btn > button {
+    padding: 0 12px;
+}
+
+.close-btn {
+    background-color: #ccc;
+}
+
+.submit-btn {
+    background-color: #db4c3f;
+}
+
+.close-btn:hover,
+.submit-btn:hover {
+    cursor: pointer;
+}
+
+.open {
+    display: flex;
+}
+
+.open-form {
+    display: block;
 }

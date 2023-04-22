@@ -1,7 +1,8 @@
 
 const getDate = (): string => {
     const presentDate = new Date(Date.now())
-    let day
+    let day, month
+    const date = presentDate.getDate()
 
     switch (presentDate.getDay()) {
         case 1:
@@ -28,9 +29,47 @@ const getDate = (): string => {
         default:
             throw new Error(`Invalid date: ${presentDate}`)
     }
-    const month = presentDate.getMonth()
-    const year = presentDate.getFullYear()
-    return `${day} ${month} ${year}`
+
+    switch(presentDate.getMonth()) {
+        case 0:
+            month = 'Jan'
+            break
+        case 1:
+            month = 'Feb'
+            break
+        case 2:
+            month = 'Mar'
+            break
+        case 3:
+            month = 'Apr'
+            break
+        case 4:
+            month = 'May'
+            break
+        case 5:
+            month = 'Jun'
+            break
+        case 6:
+            month = 'Jul'
+            break
+        case 7:
+            month = 'Aug'
+            break
+        case 8:
+            month = 'Sep'
+            break
+        case 9:
+            month = 'Oct'
+            break
+        case 10:
+            month = 'Nov'
+            break
+        case 11:
+            month = 'Dec'
+            break
+    }
+    
+    return `${day} ${date} ${month}`
 }
 
 export default getDate()

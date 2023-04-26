@@ -111,18 +111,41 @@
 .task-editor {
     padding: 10px 10px 0;
     border-bottom: 0.896px solid #ccc;
+    display: block;
+}
+
+#task-name {
+    width: 100%;
+    color: #ccc;
+    font-weight: 700;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+#task-desc {
+    width: 100%;
+    color: rgba($color: #ccc, $alpha: 0.6);
+    font-size: 12px;
+    margin-bottom: 16px;
 }
 
 .submit-func-btn {
     display: flex;
+    padding-top: 14px;
+    padding-bottom: 10px;
     justify-content: right;
     margin-right: 12px;
 }
 
 .submit-func-btn > button {
-    padding: 0 12px;
+    padding: 5px 14px;
+    margin-left: 12px;
+    border-radius: 5px;
 }
 
+.submit-func-btn > button:hover {
+    opacity: 0.75;
+}
 .close-btn {
     background-color: #ccc;
 }
@@ -136,6 +159,50 @@
     cursor: pointer;
 }
 
+.task-element-container {
+    display: flex;
+    height: 50px;
+    justify-content: left;
+}
+
+.drag {
+    width: 4%;
+    font-size: 20px;
+    justify-content: center;
+    line-height: 50px;
+    cursor: move;
+}
+
+.task-element {
+    width: 96%;
+}
+
+.task-title {
+    font-size: small;
+}
+
+.task-para {
+    font-size: smaller;
+    color: gray;
+}
+
+.seperate-list {
+    border-bottom: 0.896px solid #ccc;
+}
+
+.task-checkbox {
+    width: 5px;
+    height: 5px;
+    padding: 10px;
+    cursor: pointer;
+    background-color: #fff;
+    border: 0.6px solid #ccc;
+}
+
+.task-checkbox:hover {
+    background-color: #ccc;
+}
+
 .open {
     display: flex;
 }
@@ -143,3 +210,6 @@
 .open-form {
     display: block;
 }
+
+
+

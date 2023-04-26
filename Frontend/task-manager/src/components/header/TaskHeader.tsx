@@ -12,7 +12,7 @@ const TaskHeader = () => {
     };
     
     return (
-        <>
+        <header>
             <nav id='nav'>
                 <div id='nav-content'>
                     <div id='left-control'>
@@ -32,7 +32,7 @@ const TaskHeader = () => {
                     </div>
                 </div>
             </nav>
-        </>
+        </header>
     )
 };
 

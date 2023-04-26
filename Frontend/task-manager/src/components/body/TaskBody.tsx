@@ -7,32 +7,52 @@ import Task from '../../utils/task';
 
 const TaskBody = () => {
     const [tasks, setTasks] = useState<Array<Task>>([])
-    let task: Task
-    let URL: string = '';
+    const [state, setState] = useState<boolean>(false)
+
+    let URL: string = 'http://localhost:3000/api/v1/';
 
     // fetch api
     useEffect( () => {
-        fetch('url')
-            .then( res => res.json())
-            .then( data => {
-                setTasks(data)
-            })
-    }, [])
-    const  addTask = async () => {
-        await fetch(URL, {
+        const fetchData = async () => {
+            console.log(state);
+            
+            await fetch(`${URL}read/`)
+                .then( res => res.json())
+                .then( data => {
+                    setTasks(data)
+                })
+        }
+        fetchData()
+    }, [state])
+
+    const addTask = async (task: any) => {
+        await fetch(`${URL}create/`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify(task)
+        }).then( (res) => {
+            setState(!state)
         })
     }
     
-    
-    const handleSubmit = async () => {
-        await addTask()
+    const handleSubmit = () => {
+        const inputName = (document.getElementById('task-name') as HTMLInputElement)
+        const inputDesc = (document.getElementById('task-desc') as HTMLInputElement)
+
+        let task = {
+            name: `${inputName.value}`,
+            description: `${inputDesc.value}`,
+            date: new Date(Date.now()).toUTCString(),
+            done: false,
+        }
+
+        inputName.value = ''
+        inputDesc.value = ''
+
+        addTask(task)
     }
-    
 
     // open form
     const openForm = () => {
@@ -57,6 +77,7 @@ const TaskBody = () => {
         button?.classList.add('bi-plus-circle')
         button?.classList.remove('bi-plus-circle-fill')
     }
+
     return (
         <>
             <Row id='task-body' fluid='true'>
@@ -86,10 +107,41 @@ const TaskBody = () => {
 
                     <Row id='view-content'>
                         <ul className='items'>
+                            
                             {/* sẽ map các list items vs <li> */
-                                tasks.map( (task) => (
-                                    <li key={task.id}>{task.name}</li>
-                                ))
+                                tasks.map( (task, index) => {
+
+                                    //task.done = task.done === undefined ? false : task.done
+                                    if (task.done){
+
+                                    }
+                                    else {
+                                        return <li key={task._id} className={index === tasks.length ? '': 'seperate-list'}>
+                                            <div className="task-element-container">
+                                                <i className="bi bi-grip-vertical drag"></i>
+                                                <div className="task-element">
+                                                    <span className='task-title'>{task.name}</span>
+                                                    <p className='task-para'>{task.description}</p>
+                                                </div>
+                                                <button className='task-checkbox' onClick={ async () => {
+                                                    await fetch(`${URL}update/`, {
+                                                        method: 'PATCH',
+                                                        headers: {
+                                                            "Content-Type": "application/json",
+                                                        },
+                                                        body: JSON.stringify({
+                                                            _id: task._id,
+                                                            done: true,
+                                                        })
+                                                    })
+                                                    console.log('success');
+                                                    setState(!state)
+                                                }}></button>
+                                            </div>
+                                        </li>
+                                    }
+                                }
+                                )
                             }
                             <li className='control-func-btn ' onMouseOver={buttonUI} onMouseOut={removeButtonUI} >
                                 <button className="add-items open" onClick={openForm}>
@@ -99,8 +151,8 @@ const TaskBody = () => {
                             </li>
                             <li className="control-func-form ">
                                 <div className="task-editor">
-                                    <input type="text" placeholder='Task name' />
-                                    <input type="text" placeholder='Description' />
+                                    <input type="text" placeholder='Task name' id='task-name' />
+                                    <input type="text" placeholder='Description' id='task-desc' />
                                 </div>
 
                                 <div className='submit-func-btn'>

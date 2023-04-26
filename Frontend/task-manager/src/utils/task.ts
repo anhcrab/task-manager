@@ -1,6 +1,7 @@
 export default interface Task {
-    id: string
+    _id: string
     name: string
     description: string
     time: Date
+    done: boolean
 }

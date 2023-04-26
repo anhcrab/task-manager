@@ -1,4 +1,3 @@
-
 const getDate = (): string => {
     const presentDate = new Date(Date.now())
     let day, month
